@@ -1,0 +1,111 @@
+/* Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.modal__window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  visibility: hidden;
+  transition: visibility 0.8s ease 0s, background-color 0.8s ease 0s;
+  pointer-events: none;
+}
+
+.modal_open {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal_open .modal__content {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
+  position: relative;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.3s ease 0s, visibility 0.3s ease 0s, opacity 0.3s ease 0s;
+  background-color: #eee;
+  border-radius: 15px;
+}
+
+.modal__exit {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.modal__exit svg {
+  fill: #53a7fc;
+}
+
+/* For style page */
+
+.btns-opening {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btns-opening a {
+  display: block;
+  width: 50%;
+  min-height: 60px;
+  text-align: center;
+  color: #23486e;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 36px;
+}
+/*=============================== */
