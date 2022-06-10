@@ -23,6 +23,14 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
   align-items: center;
   max-width: 600px;
   margin: 0 auto;
+  padding: 50px;
+}
+
+body.lock {
+  touch-action: none !important;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
 }
 
 .modal__window {

@@ -53,13 +53,19 @@ class YurgenModals {
         this.modalClose();
       }
     })
+
+    document.addEventListener('keydown',(e) => {
+      if(this.activeModal && e.key == 'Escape'){
+        this.modalClose();
+      }
+    })
   }
 
   missClick(target){
     let condOne = !target.closest('.modal__content');
     let condTwo = !target.closest(`[${this.options.atributeOpen}]`);
 
-    if( condOne && condTwo){
+    if(condOne && condTwo){
       return true
     }
 
@@ -81,6 +87,12 @@ class YurgenModals {
     this.activeModal.scrollTop = 0;
 
     this.activeModal.setAttribute('aria-hidden',"false");
+
+    this.getStatusLock();
+    if(this.bodyLock){
+      bodyLock();
+      document.body.classList.add('lock');
+    }
 
     this.getHash();
     this.setHash();
@@ -106,6 +118,10 @@ class YurgenModals {
         break;
       default :
         this.removeHash();
+    }
+    if(this.bodyLock){
+      bodyUnLock()
+      document.body.classList.remove('lock');
     }
 
     // event after close
@@ -139,7 +155,7 @@ class YurgenModals {
     }
   }
 
-  modalLogging(message) {
-    console.log(`${message}`);
+  getStatusLock() {
+    this.bodyLock = document.body.classList.contains('lock') ? false : true;
   }
 }
